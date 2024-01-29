@@ -1,13 +1,13 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
-use Model\User;
+use App\Model\User;
 
 class HomepageController
 {
     // ALLEEN controllers mogen werken met superglobals (zoals POST, GET)
-    public function render()
+    public function render(): void
     {
         $pdo = new \PDO(DB_DSN, DB_USER, DB_PASSWORD);
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); // OPTIONEEL
@@ -25,6 +25,6 @@ class HomepageController
             $user->save($pdo);
         }
 
-        require 'View/homepage.php';
+        require 'src/View/homepage.php';
     }
 }

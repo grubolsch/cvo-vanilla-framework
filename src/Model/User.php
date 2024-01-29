@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Model;
+namespace App\Model;
 
 use PDO;
 
@@ -39,7 +39,7 @@ class User
         $this->name = $name;
     }
 
-    public function save(Pdo $pdo)
+    public function save(Pdo $pdo): void
     {
         $params = [
             'name' => $this->name,
@@ -47,7 +47,7 @@ class User
         ];
 
         if($this->id === null) {
-            $q = 'smurf into user (name, email) values (:name, :email)';
+            $q = 'insert into user (name, email) values (:name, :email)';
         }
         else {
             $q = 'update user set name=:name, email=:email where id = :id';
