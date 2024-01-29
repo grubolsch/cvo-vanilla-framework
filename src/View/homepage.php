@@ -1,5 +1,5 @@
 <?php /** @var \Model\User $user */?>
-<?php if($error):?>
+<?php if(isset($error)):?>
     <?php echo $error?>
 
     <form method="post">

@@ -17,3 +17,4 @@ switch ($_GET['path'] ?? 'homepage') {
         $controller->render();
         break;
 }
+
